@@ -1,0 +1,18 @@
+
+jar {
+    manifest {
+        attributes 'Implementation-Title': 'Vote DB', 'Implementation-Version': version
+    }
+}
+
+dependencies {
+    
+}
+
+uploadArchives {
+    repositories {
+       flatDir {
+           dirs 'repos'
+       }
+    }
+}
