@@ -6,13 +6,32 @@ jar {
 }
 
 dependencies {
-    
+    compile group: 'org.postgresql', name: 'postgresql', version: '9.4-1200-jdbc41'
+    compile group: 'org.peopleocracy', name: 'vote-core', version: version
 }
 
-uploadArchives {
+buildscript {
     repositories {
-       flatDir {
-           dirs 'repos'
-       }
+        mavenCentral()
+    }
+
+    dependencies {
+        classpath 'org.postgresql:postgresql:9.4-1200-jdbc41'
     }
 }
+
+/* task setUpDbUser << {
+    def driverName = 'org.postgresql.Driver'
+    Class.forName(driverName)
+    def sql = groovy.sql.Sql.newInstance(
+        'jdbc:postgresql://localhost:5867/postgres', 
+        'system', 
+        '/g%$d,Qt@?tblQRlAMb=idE8BI4U*c!+n!\\TavUc', 
+        driverName
+    )
+    sql.execute 'create table test (id int not null)'
+    sql.execute 'insert into test (id) values(1)'
+    sql.eachRow 'select * from test' {
+        println it
+    }
+} */
