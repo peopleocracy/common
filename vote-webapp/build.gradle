@@ -1,0 +1,35 @@
+
+jar {
+    manifest {
+        attributes 'Implementation-Title': 'Vote Webapp', 'Implementation-Version': version
+    }
+}
+
+dependencies {
+	[
+        "org.springframework.boot:spring-boot-starter-web",
+        "org.springframework.boot:spring-boot-starter",
+    ].each { dep ->
+        compile(dep) {
+            exclude module: "spring-boot-starter-logging"
+            exclude module: "logback-classic"
+        }
+    }
+
+  	compile group: 'org.springframework.boot', name: 'spring-boot-starter-log4j2'
+    //compile group: 'org.postgresql', name: 'postgresql', version: '9.4-1200-jdbc41'
+    //compile group: 'org.springframework', name: 'spring-jdbc', version: '4.1.5.RELEASE'
+    compile group: 'org.peopleocracy', name: 'vote-core', version: version
+}
+
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:1.2.3.RELEASE")
+    }
+}
+
+apply plugin: 'spring-boot'

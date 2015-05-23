@@ -1,14 +1,6 @@
 package vote.core.model;
 
-public class Voter extends User {
+public abstract class Voter extends User {
 
-	private final String voterId;
-
-	public Voter(final String voterId) {
-		this.voterId = voterId;
-	}
-
-	public String getVoterId() {
-		return voterId;
-	}
+	public abstract String getVoterId();
 }

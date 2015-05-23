@@ -1,2 +1,2 @@
 
-include "vote-core", "vote-db"
+include "vote-core", "vote-db", "vote-webapp"

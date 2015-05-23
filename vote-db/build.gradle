@@ -7,7 +7,9 @@ jar {
 
 dependencies {
     compile group: 'org.postgresql', name: 'postgresql', version: '9.4-1200-jdbc41'
+    compile group: 'org.springframework', name: 'spring-jdbc', version: '4.1.5.RELEASE'
     compile group: 'org.peopleocracy', name: 'vote-core', version: version
+    
 }
 
 buildscript {
